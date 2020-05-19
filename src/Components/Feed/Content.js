@@ -10,7 +10,7 @@ const Content = ({ urlImage }) => {
         <View style={Style.content}>
             <Image
                 style={Style.imageStorie}
-                source={urlImage}
+                source={{ uri: urlImage}}
             />
         </View>
     )

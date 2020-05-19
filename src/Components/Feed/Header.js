@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import Style from './Style'
 import {
-    StyleSheet,
-    Dimensions,
     Text,
     Image,
     View
@@ -10,16 +8,18 @@ import {
 
 const Header = ({ user }) => {
     return (
-        <View 
+        <View
             style={Style.header}
         >
             <Image
                 style={Style.headerAvatar}
-                source={user.avatarUrl}
+                source={{ uri: user.userURL }}
             />
             <Text
                 style={Style.headerText}
-            >{user.name}</Text>
+            >
+                {user.userName}
+            </Text>
         </View>
     )
 }

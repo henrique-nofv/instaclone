@@ -16,12 +16,11 @@ const FeedPage = () => {
 
     useEffect(() => {
         const requestFeed = async () => {
-            const feedResponse = await fetch(
+            let feedResponse = await fetch(
                 'http://10.0.2.2:3030/feed'
             )
+            let feedResponseJson = await feedResponse.json();
 
-            const feedResponseJson = await feedResponse.json()
-            
             setFeed(feedResponseJson)
         }
 
@@ -35,9 +34,8 @@ const FeedPage = () => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) =>
                 <Fragment>
-                    <Text>{item}</Text>
                     <Header user={item} />
-                    <Content urlImage={item.avatarUrl} />
+                    <Content urlImage={item.url} />
                 </Fragment>
             }
         />
